@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "SecuritiesPopulater": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "REDIS_PORT_6379_TCP_ADDR": "128.199.219.151",
+        "REDIS_PORT_6379_TCP_PORT": "6379"
+      }
+    }
+  }
+}

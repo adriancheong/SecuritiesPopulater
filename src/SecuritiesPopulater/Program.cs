@@ -16,10 +16,15 @@ namespace SecuritiesPopulater
 
         public static void Main(string[] args)
         {
-            initAndPopulateRedisStore();
+            int numberOfSecurities = NUMBER_OF_SECURITIES_TO_CREATE;
+            if (args != null && args.Length == 1)
+            {
+                int.TryParse(args[0], out numberOfSecurities);
+            }
+            initAndPopulateRedisStore(numberOfSecurities);
         }
 
-        private static void initAndPopulateRedisStore()
+        private static void initAndPopulateRedisStore(int numberOfSecurities)
         {
             var configurationOptions = new ConfigurationOptions
             {
@@ -31,7 +36,7 @@ namespace SecuritiesPopulater
             ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(configurationOptions);
 
             IDatabase db = redis.GetDatabase();
-            IList<Security> securities = SecuritiesGenerator.GenerateRandomSecurities(NUMBER_OF_SECURITIES_TO_CREATE);
+            IList<Security> securities = SecuritiesGenerator.GenerateRandomSecurities(numberOfSecurities);
             foreach (Security security in securities)
             {
                 db.HashSet(security.SecurityId, GenerateRedisHash<Security>(security));

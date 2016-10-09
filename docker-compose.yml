@@ -4,6 +4,9 @@ services:
     build: .
     links:
       - redis
+    environment:
+      "REDIS_PORT_6379_TCP_ADDR": "localhost"
+      "REDIS_PORT_6379_TCP_PORT": "6379"
   redis:
     image: redis
     volumes:

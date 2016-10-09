@@ -11,10 +11,10 @@ namespace SecuritiesPopulater
         private static readonly string[] COUNTRY_LIST = { "Singapore", "United States", "United Kingdom", "Europe", "Sweden", "China", "Japan" };
         private static readonly Random random = new Random();
 
-        public static IList<Security> GenerateRandomSecurities(int numberOfSecurities)
+        public static IList<Security> GenerateRandomSecurities(int numberOfSecurities, int startingSecurityId)
         {
             IList<Security> securities = new List<Security>();
-            for (int i = 0; i < numberOfSecurities; i++)
+            for (int i = startingSecurityId; i < startingSecurityId + numberOfSecurities; i++)
             {
                 securities.Add(new Security
                 {

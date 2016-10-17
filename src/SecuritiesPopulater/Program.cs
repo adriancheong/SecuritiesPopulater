@@ -29,6 +29,9 @@ namespace SecuritiesPopulater
 
         private static void initAndPopulateRedisStore(int numberOfSecurities, int startingSecurityId)
         {
+            Console.WriteLine("Creating REDIS Endpoints");
+            Console.WriteLine("REDIS_ADDRESS_ENV_PROPERTY_KEY = {0}", Environment.GetEnvironmentVariable(REDIS_ADDRESS_ENV_PROPERTY_KEY));
+            Console.WriteLine("REDIS_PORT_ENV_PROPERTY_KEY = {0}", Environment.GetEnvironmentVariable(REDIS_PORT_ENV_PROPERTY_KEY));
             var configurationOptions = new ConfigurationOptions
             {
                 EndPoints =

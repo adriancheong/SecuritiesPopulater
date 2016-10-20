@@ -5,6 +5,7 @@
   },
 
   "dependencies": {
+    "Microsoft.Azure.DocumentDB": "1.10.0",
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.1"
@@ -14,7 +15,7 @@
 
   "frameworks": {
     "netcoreapp1.0": {
-      "imports": "dnxcore50"
+      "imports": [ "dnxcore50", "net45" ]
     }
   }
 }
